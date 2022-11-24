@@ -1,6 +1,6 @@
 package space.luchuktech.sqfc.api;
 
-public interface Step<C extends Condition, T extends Transform> {
+public interface Step<S extends State<?>, C extends Condition<S>, T extends Transform<S>> {
 
 
 
