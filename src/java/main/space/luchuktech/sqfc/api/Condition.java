@@ -4,6 +4,7 @@ package space.luchuktech.sqfc.api;
  *
  * @param <S>
  */
+@FunctionalInterface
 public interface Condition<S extends State> {
 
     /**
