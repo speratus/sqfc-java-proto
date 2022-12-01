@@ -1,5 +1,7 @@
 package space.luchuktech.sqfc.api;
 
+import java.util.Optional;
+
 /**
  *
  * @param <K>
@@ -15,7 +17,14 @@ public interface State<K> {
      * @return The value of the requested key. Null if the value doesn't exist.
      * @param <T> The expected type of the return value.
      */
-    <T> T getVariable(K key, Class<T> returnType);
+    <T> Optional<T> getVariable(K key, Class<T> returnType);
+
+    /**
+     *
+     * @param key
+     * @return
+     */
+    Optional<Object> getVariableAsObject(K key);
 
     /**
      * Sets a variable of the state.
