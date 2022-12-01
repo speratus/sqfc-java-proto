@@ -3,6 +3,7 @@ package space.luchuktech.sqfc;
 import space.luchuktech.sqfc.api.State;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 public class StringKeyMapState implements State<String> {
 
@@ -13,14 +14,25 @@ public class StringKeyMapState implements State<String> {
     }
 
     @Override
-    public <T> T getVariable(String key, Class<T> returnType) {
+    public <T> Optional<T> getVariable(String key, Class<T> returnType) {
         Object val = this.storage.get(key);
 
         if (val == null) {
-            return null;
+            return Optional.empty();
         }
 
-        return returnType.cast(val);
+        return Optional.of(returnType.cast(val));
+    }
+
+    @Override
+    public Optional<Object> getVariableAsObject(String key) {
+        var val = this.storage.get(key);
+
+        if (val == null) {
+            return Optional.empty();
+        }
+
+        return Optional.of(val);
     }
 
     @Override
