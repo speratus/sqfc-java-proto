@@ -4,11 +4,11 @@ import space.luchuktech.sqfc.api.State;
 
 import java.util.HashMap;
 
-public class HashState implements State<String> {
+public class StringKeyMapState implements State<String> {
 
     private final HashMap<String, Object> storage;
 
-    public HashState() {
+    public StringKeyMapState() {
         storage = new HashMap<>();
     }
 
